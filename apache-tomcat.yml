@@ -60,6 +60,7 @@
     copy:
        src: https://raw.githubusercontent.com/umitdemirtas/ansible-tower/master/tomcat.service
        dest: /etc/systemd/system/
+       remote_src: yes
        mode: 0755
 
   - name: Start and enable Tomcat service
