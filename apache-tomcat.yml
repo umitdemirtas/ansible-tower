@@ -58,9 +58,9 @@
    
   - name: Download tomcat.service
     get_url:
-    url: https://raw.githubusercontent.com/umitdemirtas/ansible-tower/master/tomcat.service
-    dest: /etc/systemd/system/
-    mode: '0755'
+      url: https://raw.githubusercontent.com/umitdemirtas/ansible-tower/master/tomcat.service
+      dest: /etc/systemd/system/
+      mode: '0755'
 
   - name: Start and enable Tomcat service
     systemd:
