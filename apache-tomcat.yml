@@ -6,6 +6,11 @@
   remote_user: ubuntu
 
   tasks:
+  - name: Add OpenJDK Package
+  - apt_repository:
+    repo: 'ppa:openjdk-r/ppa
+    codename: trusty
+  
   - name: Update and upgrade apt packages
     apt:
       upgrade: yes
