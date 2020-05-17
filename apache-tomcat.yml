@@ -6,10 +6,12 @@
   remote_user: ubuntu
 
   tasks:
-  - apt_repository:
-    repo: 'ppa:openjdk-r/ppa
-    codename: trusty
-  
+  - name: Add OpenJDK Repo
+    apt_repository:
+      validate_certs: no
+      repo: 'ppa:openjdk-r/ppa'
+      state: present
+      
   - name: Update and upgrade apt packages
     apt:
       upgrade: yes
