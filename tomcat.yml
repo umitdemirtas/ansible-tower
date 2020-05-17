@@ -1,0 +1,24 @@
+- name: Install Tomcat Application server and deploy sample Java app
+  hosts: all
+  tasks:
+    - name: Ensure that the tomcat application server is installed
+      yum:
+        name: tomcat
+        state: present
+    - name: Ensure tomcat service is enabled and started
+      service:
+        name: tomcat
+        enabled: yes
+        state: started
+    - name: Download and deploy sample Java application
+      get_url:
+        url: https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/sample.war
+        dest: /var/lib/tomcat/webapps/sample.war
+        mode: 0777
+      notify:
+      - restart tomcat
+  handlers:
+    - name: restart tomcat
+      service: 
+        name: tomcat
+        state:  restarted
