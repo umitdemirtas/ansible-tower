@@ -3,6 +3,7 @@
 
   become: yes
   become_method: sudo
+  become_password: VMware1!VMware1!
   remote_user: ubuntu
 
   tasks:
